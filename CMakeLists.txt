@@ -3,4 +3,5 @@ project(adventureofcmd)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(adventureofcmd main.cpp)
+add_executable(adventureofcmd main.cpp
+        livingentity.h)
