@@ -5,16 +5,17 @@
 #include <string>
 #include "livingentity.h"
 
-enum Aggression_Level {
-    Friendly,
-    Passive,
-    Neutral,
-    Angry,
-    Murder
-};
+
 
 class Room {
 private:
+    enum Aggression_Level {
+        Friendly = 1,
+        Passive = 3,
+        Neutral = 5,
+        Angry = 7,
+        Murder = 9
+    };
     int currentDescription = 0;
     int populationCount;
 
@@ -23,31 +24,15 @@ private:
     std::vector<LivingEntity *> population;
 
 public:
-    Room(int populationNumber, std::string_view roomName, std::vector<std::string *> descriptions,
-         std::vector<LivingEntity *> people) : populationCount(populationNumber), name(roomName),
-                                               description(std::move(descriptions)), population(std::move(people)) {}
+    Room();
+    ~Room()=default;
 
-    ~Room() = default;
-
-    void modifyHostility() {
-        for(auto i: population) {
-            if(Friendly) {
-
-            }
-            if(Passive) {
-
-            }
-            if(Neutral) {
-
-            }
-            if(Angry) {
-
-            }
-            if(Murder) {
-
-            }
+private:
+    void modifyAggression() {
+        switch (population[1]->getHostility()) {
+            
         }
-    }
+    };
 };
 
 #endif //ADVENTUREOFCMD_ROOM_H

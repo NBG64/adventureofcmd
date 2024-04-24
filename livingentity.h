@@ -10,14 +10,13 @@ class LivingEntity {
 private:
     int health;
     int hostility;
+    int mood;
     int currentDialogPlace = 0;
-    std::vector<std::string *> Dialog;
-    std::vector<std::string *> Items;
+    std::vector<std::string> Dialog;
+    std::vector<std::string> Items;
 public:
-    LivingEntity(int healthPoints, int hostility, std::vector<std::string *> Dialogs,
-                 std::vector<std::string *> ItemList)
-            : health(healthPoints), hostility(hostility), Dialog(std::move(Dialogs)),
-              Items(std::move(ItemList)) {}
+
+    LivingEntity();
 
     ~LivingEntity() = default;
 
@@ -25,16 +24,24 @@ public:
         return health;
     }
 
-    [[nodiscard]] int setHealth(int value) const {
-        return health + value;
+    void setHealth(int value) {
+        health += value;
     }
 
     [[nodiscard]] int getHostility() const {
         return hostility;
     }
 
-    [[nodiscard]] int setHostility(int value) const {
-        return hostility + value;
+    void setHostility(int value) {
+        hostility += value;
+    }
+
+    [[nodiscard]] int getMood() const {
+
+    }
+
+    void setMood(int currentMood) {
+
     }
 
     [[nodiscard]] int getDialogPlace() const{
