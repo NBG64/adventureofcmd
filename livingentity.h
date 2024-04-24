@@ -10,13 +10,15 @@ class LivingEntity {
 private:
     int health;
     int hostility;
-    int mood;
+    int moodLevel;
     int currentDialogPlace = 0;
     std::vector<std::string> Dialog;
     std::vector<std::string> Items;
 public:
 
-    LivingEntity();
+    LivingEntity(const std::string) {
+    // Todo: File read
+    }
 
     ~LivingEntity() = default;
 
@@ -37,7 +39,7 @@ public:
     }
 
     [[nodiscard]] int getMood() const {
-
+        return moodLevel;
     }
 
     void setMood(int currentMood) {
